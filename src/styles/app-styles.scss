@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap');
+@font-face {
+    font-family: 'LeMurmure';
+    src: url(../assets/LeMurmure-Regular.woff) format('woff');
+}
+
+$bg-color:whitesmoke;
+
+:root{
+    --main-color:#FF5B00;
+}
+
+
+body {
+    font-family:  'Syne', sans-serif;
+    background-color: $bg-color;
+  
+}
+
+.main-container {
+
+    ul{
+        scroll-behavior: smooth;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        padding-left: 10vw;
+        box-sizing: border-box;
+        overflow: auto;
+       list-style-type: none;
+    }
+ 
+}

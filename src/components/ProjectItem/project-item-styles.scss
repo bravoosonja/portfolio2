@@ -1,0 +1,70 @@
+
+.project-item-container {
+    cursor: pointer;
+    line-height: 1.25;
+    padding: 5px 0;
+
+    .title-item {
+        position: relative;
+       
+    }
+
+    img {
+        position:fixed;
+        left: 45vw;
+        top:30vh;
+        width: auto;
+        height: clamp(200px, 20vw, 20vw);
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    .menu-title{
+        font-family: "LeMurmure";
+        font-size: 9vw;
+        font-style: italic;
+        text-transform:lowercase;
+        z-index: 1;
+        line-height: 1.1;
+        
+    }
+
+    .info-block {
+        position:fixed;
+        top:50%;
+        transform: translateY(-50%);
+        left:70vw;
+        z-index:1;
+        text-align: left;
+        font-size: 20px;
+        
+
+        p {
+            margin-bottom:10px;
+            overflow: hidden;
+            color: #444444;
+
+            span {
+                display: block;
+                transition: all 0.25s ease-in-out;
+            }
+        }
+
+        .info-block-header{
+            margin-bottom:20px;
+            color:black;
+            font-weight:500;
+            font-size: 25px;
+            
+
+            svg{
+             margin-right:4px;   
+            }
+
+            span {
+                display:flex;
+                align-items: center;
+            }
+        }
+    }
+}
