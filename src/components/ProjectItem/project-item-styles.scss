@@ -10,7 +10,6 @@
     }
 
     img {
-        opacity: 0;
         position:fixed;
         left: 45vw;
         top: 30vh;
@@ -18,6 +17,7 @@
         height: clamp(200px, 20vw, 20vw);
         object-fit: cover;
         pointer-events: none;
+        transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     .menu-title{
@@ -26,12 +26,7 @@
         font-style: italic;
         text-transform:lowercase;
         z-index: 1;
-        line-height: 0.4;
-
-        &:hover{
-            color:var(--main-color);
-        }
-        
+        line-height: 0.4;        
     }
 
     .info-block {

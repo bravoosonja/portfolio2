@@ -4,8 +4,9 @@
 
 ## Features
 - Fully responsive
-- Infinite loop scroll
-- Buttery smooth animation
+- Parallax scrolling
+- Parallax mouse effect
+- Smooth animation
 - Custom cursor
 - Parallax media
 
