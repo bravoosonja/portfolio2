@@ -10,9 +10,10 @@
     }
 
     img {
+        opacity: 0;
         position:fixed;
         left: 45vw;
-        top:30vh;
+        top: 30vh;
         width: auto;
         height: clamp(200px, 20vw, 20vw);
         object-fit: cover;
@@ -25,7 +26,11 @@
         font-style: italic;
         text-transform:lowercase;
         z-index: 1;
-        line-height: 1.1;
+        line-height: 0.4;
+
+        &:hover{
+            color:var(--main-color);
+        }
         
     }
 
@@ -46,6 +51,7 @@
 
             span {
                 display: block;
+                opacity: 0;
                 transition: all 0.25s ease-in-out;
             }
         }
