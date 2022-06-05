@@ -140,33 +140,35 @@ export default function ProjectItem({ project, itemIndex }) {
   };
 
   return (
-    <li className="project-item-container" ref={listItem}>
-      <ProjectTitle
-        title={project.title}
-        handleMouseEnter={handleMouseEnter}
-        handleMouseLeave={handleMouseLeave}
-      />
-      <ProjectImage
-        src={project.path}
-        opacity={state.opacity}
-        parallaxPosition={state.parallaxPosition}
-        scale={state.scale}
-        rotation={state.rotationPosition}
-      />
+    <>
+      <li className="project-item-container" ref={listItem}>
+        <ProjectTitle
+          title={project.title}
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+        />
+        <ProjectImage
+          src={project.path}
+          opacity={state.opacity}
+          parallaxPosition={state.parallaxPosition}
+          scale={state.scale}
+          rotation={state.rotationPosition}
+        />
 
-      <div className={cn("info-block", { "as-active": state.active })}>
-        <p className="info-block-header">
-          <span>
-            <Hash />0{`${itemIndex + 1}`}
-          </span>
-        </p>
-
-        {project.info.map((element) => (
-          <p key={element}>
-            <span>{element}</span>
+        <div className={cn("info-block", { "as-active": state.active })}>
+          <p className="info-block-header">
+            <span>
+              <Hash />0{`${itemIndex + 1}`}
+            </span>
           </p>
-        ))}
-      </div>
-    </li>
+
+          {project.info.map((element) => (
+            <p key={element}>
+              <span>{element}</span>
+            </p>
+          ))}
+        </div>
+      </li>
+    </>
   );
 }

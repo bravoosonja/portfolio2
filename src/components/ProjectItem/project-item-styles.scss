@@ -1,8 +1,12 @@
+@import '../../styles/mq.scss';
+
+
+
 
 .project-item-container {
     cursor: pointer;
     padding: 5px 0;
-
+   
     .title-item {
         position: relative;
        
@@ -56,10 +60,10 @@
         }
 
         &.as-active {
-            @for $i from 0 through 4 {
+            @for $i from 0 through 3 {
                 p:nth-child(#{$i+1}n){
                     span {
-                        transition-delay: #{$i/10}s ;
+                        transition-delay:calc($i / 10)s ;
                     }
                 }
             }
@@ -72,7 +76,7 @@
 
     .menu-title{
         font-family: "LeMurmure";
-        font-size: 9vw;
+        font-size: 10vw;
         font-style: italic;
         text-transform:lowercase;
         z-index: 1;
@@ -89,7 +93,7 @@
 
         &:not(.clone){
             -webkit-text-stroke: 1px rgba(0, 0, 0, 0.25);
-            color: transparent;
+            color: var(--main-color);
 
             &:hover{
               cursor: pointer;
@@ -100,4 +104,14 @@
             }
         }
     }
+
+
+    @include mq($from: mobile, $until: tablet) {
+        padding: 25px 0; 
+
+        .info-block{
+            display: none;
+        }
+    }
 }
+
