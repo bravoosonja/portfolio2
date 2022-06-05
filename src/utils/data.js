@@ -1,16 +1,16 @@
 export const pageData = [
   {
-    path: "/src/assets/images/huddle.png",
+    path: "/public/images/huddle.png",
     title: "Huddle",
     info: ["React", "Styled Components", "Clone"],
   },
   {
-    path: "/src/assets/public/images/tictactoe.png",
+    path: "/public/images/tictactoe.png",
     title: "Tic Tac Toe",
     info: ["JavaScript", "HTML", "CSS"],
   },
   {
-    path: "/src/assets/public/images/library.png",
+    path: "/public/images/library.png",
     title: "Library",
     info: ["JavaScript", "HTML", "CSS"],
   },

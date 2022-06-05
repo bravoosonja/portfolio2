@@ -3,6 +3,7 @@ import "./project-item-styles.scss";
 import ProjectImage from "./ProjectImage";
 import ProjectTitle from "./ProjectTitle";
 import { Hash } from "react-feather";
+import animate from "./animate";
 
 const initialState = {
   opacity: 0,
@@ -32,6 +33,7 @@ function reducer(state, action) {
 export default function ProjectItem({ project, itemIndex }) {
   const listItem = useRef(null);
   const [state, dispatch] = useReducer(reducer, initialState);
+  const easeMethod = "linear";
 
   const parallax = (event) => {
     const speed = -5;
@@ -40,14 +42,28 @@ export default function ProjectItem({ project, itemIndex }) {
     dispatch({ type: "mouse/coordinates", payload: { x, y } });
   };
 
+  const handleOpacity = (initialOpacity, newOpacity, duration) => {
+    animate({
+      fromValue: initialOpacity,
+      toValue: newOpacity,
+      onUpdate: (newOpacity, callback) => {
+        dispatch({ type: "change/opacity", payload: newOpacity });
+        callback();
+      },
+      onComplete: () => {},
+      duration: duration,
+      easeMethod: easeMethod,
+    });
+  };
+
   const handleMouseEnter = () => {
-    dispatch({ type: "change/opacity", payload: 1 });
+    handleOpacity(0, 1, 500);
     listItem.current.addEventListener("mouseenter", parallax);
   };
 
   const handleMouseLeave = () => {
     listItem.current.removeEventListener("mouseleave", parallax);
-    dispatch({ type: "change/opacity", payload: 0 });
+    handleOpacity(1, 0, 500);
     dispatch({
       type: "mouse/coordinates",
       payload: initialState.parallaxPosition,
