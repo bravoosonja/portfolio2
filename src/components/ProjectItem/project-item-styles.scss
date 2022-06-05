@@ -1,7 +1,6 @@
 
 .project-item-container {
     cursor: pointer;
-    line-height: 1.25;
     padding: 5px 0;
 
     .title-item {
@@ -20,15 +19,6 @@
         transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
-    .menu-title{
-        font-family: "LeMurmure";
-        font-size: 9vw;
-        font-style: italic;
-        text-transform:lowercase;
-        z-index: 1;
-        line-height: 0.4;        
-    }
-
     .info-block {
         position:fixed;
         top:50%;
@@ -37,34 +27,76 @@
         z-index:1;
         text-align: left;
         font-size: 20px;
-        
-
-        p {
-            margin-bottom:10px;
-            overflow: hidden;
-            color: #444444;
-
-            span {
-                display: block;
-                opacity: 0;
-                transition: all 0.25s ease-in-out;
-            }
-        }
+       
 
         .info-block-header{
             margin-bottom:20px;
             color:black;
             font-weight:500;
             font-size: 25px;
-            
-
             svg{
              margin-right:4px;   
             }
-
             span {
                 display:flex;
                 align-items: center;
+            }
+        }
+
+        p {
+            margin-bottom:10px;
+            overflow: hidden;
+            color: #444444;
+            span {
+                display: block;
+                opacity: 0;
+                transition: all 0.25s ease-in-out;
+                transform: translateY(10px);
+            }
+        }
+
+        &.as-active {
+            @for $i from 0 through 4 {
+                p:nth-child(#{$i+1}n){
+                    span {
+                        transition-delay: #{$i/10}s ;
+                    }
+                }
+            }
+            span {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    .menu-title{
+        font-family: "LeMurmure";
+        font-size: 9vw;
+        font-style: italic;
+        text-transform:lowercase;
+        z-index: 1;
+        line-height: 1.1; 
+        
+        &.clone {
+            position:absolute;
+            top:0;
+            pointer-events: none;
+            color:black;
+            clip-path: inset (0 100% 0 0);
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1 );
+        }
+
+        &:not(.clone){
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.25);
+            color: transparent;
+
+            &:hover{
+              cursor: pointer;
+
+              ~.clone{
+                  clip-path: inset(0 0 0 0) ;
+              }
             }
         }
     }
